@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz 20 anos, Pandinha! 🎂</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --rosa: #ff9ebb;
+            --rosa-claro: #ffd1dc;
+            --roxo: #8a2be2;
+            --amarelo: #ffd166;
+            --azul-claro: #a2d2ff;
+            --verde-menta: #a7e9af;
+            --branco: #fffaf7;
+            --preto: #2d2d2d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffd1dc 0%, #a2d2ff 100%);
+            color: var(--preto);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        /* Efeito de confetes */
+        .confetti {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            overflow: hidden;
+        }
+        
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 20px;
+            background: var(--rosa);
+            top: 0;
+            opacity: 0;
+        }
+        
+        .confetti-piece:nth-child(odd) {
+            background: var(--azul-claro);
+        }
+        
+        .confetti-piece:nth-child(even) {
+            background: var(--amarelo);
+        }
+        
+        .confetti-piece:nth-child(3n) {
+            background: var(--verde-menta);
+        }
+        
+        /* Header */
+        header {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, rgba(255, 209, 220, 0.8) 0%, rgba(162, 210, 255, 0.6) 100%);
+            z-index: -1;
+        }
+        
+        .panda-icon {
+            font-size: 8rem;
+            animation: bounce 2s infinite, rotate 4s infinite linear;
+            filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
+            margin-bottom: 20px;
+        }
+        
+        .title-container {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 30px 40px;
+            border-radius: 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            max-width: 800px;
+            margin: 0 20px;
+            border: 3px solid var(--rosa);
+        }
+        
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: var(--roxo);
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 0 var(--rosa-claro);
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--preto);
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+        
+        .birthday-date {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--rosa), var(--azul-claro));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-top: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Botão */
+        .start-btn {
+            margin-top: 40px;
+            padding: 18px 45px;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(90deg, var(--rosa), var(--roxo));
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(138, 43, 226, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .start-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(138, 43, 226, 0.4);
+        }
+        
+        /* Seções */
+        section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-bottom: 60px;
+            color: var(--roxo);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--rosa), var(--azul-claro));
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+        
+        /* Seção Fotos */
+        .photos-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .photo-container {
+            width: 300px;
+            height: 300px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            position: relative;
+            transition: all 0.4s ease;
+        }
+        
+        .photo-container:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.25);
+        }
+        
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--rosa), var(--roxo));
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .photo-placeholder i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .photo-number {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--roxo);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .photo-upload-btn {
+            margin-top: 15px;
+            padding: 8px 15px;
+            background: white;
+            color: var(--roxo);
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .photo-upload-btn:hover {
+            background: var(--roxo);
+            color: white;
+        }
+        
+        .photo-preview {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+        
+        /* Seção Pandinha */
+        .panda-section {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 40px;
+        }
+        
+        .panda-story {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            line-height: 1.8;
+            font-size: 1.1rem;
+            border-left: 8px solid var(--rosa);
+        }
+        
+        .panda-images {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .panda-img-container {
+            height: 200px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            position: relative;
+        }
+        
+        .panda-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .panda-img:hover {
+            transform: scale(1.05);
+        }
+        
+        .img-label {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        /* Seção Verão */
+        .summer-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .summer-quote {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .summer-quote:before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, #a2d2ff, #0096c7);
+            top: 0;
+            left: 0;
+        }
+        
+        .quote-icon {
+            font-size: 2.5rem;
+            color: var(--azul-claro);
+            margin-bottom: 15px;
+        }
+        
+        .quote-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            font-style: italic;
+            color: var(--preto);
+            margin-bottom: 20px;
+        }
+        
+        .summer-images {
+            flex: 1;
+            min-width: 300px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .summer-img {
+            height: 180px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .summer-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .summer-img img:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Seção Livros */
+        .books-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .book-card {
+            width: 250px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.2);
+        }
+        
+        .book-cover {
+            height: 320px;
+            background: linear-gradient(135deg, var(--rosa-claro), var(--azul-claro));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+        
+        .book-info {
+            padding: 25px;
+        }
+        
+        .book-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--roxo);
+        }
+        
+        .book-author {
+            font-size: 1rem;
+            color: var(--preto);
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .book-desc {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #555;
+        }
+        
+        /* Seção Doces */
+        .sweets-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .sweet-item {
+            width: 160px;
+            text-align: center;
+            background: white;
+            padding: 25px 15px;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .sweet-item:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+        
+        .sweet-emoji {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            display: block;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .sweet-name {
+            font-weight: 600;
+            color: var(--roxo);
+        }
+        
+        /* Seção Bela e a Fera */
+        .beauty-beast {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 40px;
+        }
+        
+        .rose-container {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .enchanted-rose {
+            font-size: 10rem;
+            filter: drop-shadow(0 10px 20px rgba(138, 43, 226, 0.3));
+            animation: pulse 3s infinite, glow 2s infinite alternate;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .enchanted-rose:hover {
+            transform: scale(1.1);
+        }
+        
+        .rose-text {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--roxo);
+        }
+        
+        .beast-quote {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-right: 8px solid var(--roxo);
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        /* Carta */
+        .letter-section {
+            text-align: center;
+        }
+        
+        .letter-container {
+            max-width: 800px;
+            margin: 60px auto 0;
+            position: relative;
+        }
+        
+        .envelope {
+            width: 300px;
+            height: 200px;
+            background: linear-gradient(135deg, var(--rosa), var(--roxo));
+            margin: 0 auto;
+            border-radius: 20px;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+            transition: all 0.5s ease;
+        }
+        
+        .envelope:hover {
+            transform: scale(1.05);
+        }
+        
+        .envelope:before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-bottom: 100px solid var(--rosa-claro);
+            top: 0;
+            left: 0;
+            border-radius: 20px 20px 0 0;
+        }
+        
+        .envelope:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+        }
+        
+        .letter {
+            width: 280px;
+            height: 180px;
+            background: white;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: left;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.8s ease;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .envelope.open .letter {
+            transform: translateY(-180px);
+        }
+        
+        .wax-seal {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle, #ff9bb0, #b11226);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            z-index: 2;
+            animation: pulse 2s infinite;
+            transition: transform 0.5s ease;
+        }
+        
+        .envelope.open .wax-seal {
+            animation: none;
+            transform: scale(0);
+        }
+        
+        .letter-content {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+            padding: 20px;
+        }
+        
+        .letter-paper {
+            max-width: 700px;
+            width: 100%;
+            background: #fffaf0;
+            border-radius: 20px;
+            padding: 50px;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            max-height: 90vh;
+            overflow-y: auto;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            border: 15px solid transparent;
+            border-image: linear-gradient(45deg, var(--rosa), var(--azul-claro)) 1;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--roxo);
+            transition: all 0.3s ease;
+        }
+        
+        .close-btn:hover {
+            transform: scale(1.2);
+        }
+        
+        .letter-paper h3 {
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: var(--roxo);
+            margin-bottom: 30px;
+        }
+        
+        .letter-signature {
+            text-align: right;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: var(--roxo);
+            margin-top: 40px;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(90deg, var(--roxo), var(--rosa));
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 100px;
+        }
+        
+        .footer-heart {
+            color: #ff9ebb;
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        /* Animações */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-25px); }
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        @keyframes glow {
+            0% { filter: drop-shadow(0 0 5px rgba(138, 43, 226, 0.5)); }
+            100% { filter: drop-shadow(0 0 20px rgba(138, 43, 226, 0.8)); }
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            .section-title { font-size: 2.3rem; }
+            .panda-icon { font-size: 6rem; }
+            .enchanted-rose { font-size: 7rem; }
+            .photo-container { width: 250px; height: 250px; }
+        }
+        
+        @media (max-width: 480px) {
+            h1 { font-size: 2.5rem; }
+            .subtitle { font-size: 1.2rem; }
+            .section-title { font-size: 2rem; }
+            .title-container { padding: 20px; }
+            .photo-container { width: 100%; max-width: 300px; height: 300px; }
+        }
+    </style>
+</head>
+<body>
+    <audio id="player" autoplay></audio>
+    
+    <!-- Confetes -->
+    <div class="confetti" id="confetti"></div>
+    
+    <!-- Header -->
+    <header>
+        <div class="header-bg"></div>
+        <div class="panda-icon">🐼</div>
+        <div class="title-container">
+            <h1>Feliz 20 anos, Pandinha!</h1>
+            <div class="subtitle">Anna Valéria Pires, essa é pra você!</div>
+            <p>Uma coleção de coisas que lembram você e celebram essa data especial.</p>
+            <div class="birthday-date">04 de Janeiro - 20 anos 🎉</div>
+        </div>
+        <button class="start-btn" id="startBtn">
+            <i class="fas fa-arrow-down"></i> Descobrir surpresas
+        </button>
+    </header>
+    
+    <!-- Seção Fotos -->
+    <section id="photos">
+        <h2 class="section-title">Nossas Melhores Fotos 📸</h2>
+
+        <div class="photos-section">
+
+            <div class="photo-container">
+                <span class="photo-number">1</span>
+                <img src="img/foto1.jpg" class="photo-preview" style="display:block;">
+            </div>
+
+            <div class="photo-container">
+                <span class="photo-number">2</span>
+                <img src="img/foto2.jpg" class="photo-preview" style="display:block;">
+            </div>
+
+            <div class="photo-container">
+                <span class="photo-number">3</span>
+                <img src="img/foto3.jpg" class="photo-preview" style="display:block;">
+            </div>
+
+            <div class="photo-container">
+                <span class="photo-number">4</span>
+                <img src="img/foto4.jpg" class="photo-preview" style="display:block;">
+            </div>
+
+            <div class="photo-container">
+                <span class="photo-number">5</span>
+                <img src="img/foto5.jpg" class="photo-preview" style="display:block;">
+            </div>
+
+            <div class="photo-container">
+                <span class="photo-number">6</span>
+                <img src="img/foto6.jpg" class="photo-preview" style="display:block;">
+            </div>
+
+        </div>
+    </section>
+
+    
+    <!-- Seção Pandinha -->
+    <section id="pandinhastory">
+        <h2 class="section-title">Por que "Pandinha"? 🐼</h2>
+        <div class="panda-section">
+            <div class="panda-story">
+                <p>Nem todo mundo tem um apelido que combina tão perfeitamente, mas no seu caso, "Pandinha" foi uma escolha perfeita!</p>
+                <br>
+                <p>Lembro quando você apareceu com aquela bolsa de panda fofa e todo mundo começou a te chamar assim. O panda representa docilidade, força e um charme único - tudo o que você tem de sobra.</p>
+                <br>
+                <p>E como os pandas, você tem essa mistura de ser tranquila mas determinada, divertida mas com profundidade. É por isso que o apelido grudou e agora é parte de quem você é!</p>
+            </div>
+            <div class="panda-images">
+
+                <div class="panda-img-container">
+                    <img src="img/panda1.jpg" class="panda-img">
+                    <div class="img-label">A famosa bolsa de panda</div>
+                </div>
+
+                <div class="panda-img-container">
+                    <img src="img/panda2.jpg" class="panda-img">
+                    <div class="img-label">Pandas: fofos e especiais</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <!-- Seção Verão -->
+    <section id="summer">
+        <h2 class="section-title">O Verão Que Mudou Minha Vida 🌊</h2>
+        <div class="summer-container">
+            <div class="summer-quote">
+                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                <p class="quote-text">"Algumas pessoas entram na nossa vida como um raio de sol no verão - iluminam tudo ao redor e deixam tudo mais quente e colorido."</p>
+                <p>Assim como na série que você ama, os verões da nossa vida são marcantes não apenas pelo calor, mas pelas pessoas que compartilhamos esses momentos. Você com certeza é uma dessas pessoas que tornam qualquer dia mais leve e especial.</p>
+            </div>
+            <div class="summer-images">
+
+                <div class="summer-img">
+                    <img src="img/verao1.jpg">
+                </div>
+
+                <div class="summer-img">
+                    <img src="img/verao2.jpg">
+                </div>
+
+                <div class="summer-img">
+                    <img src="img/verao3.jpg">
+                </div>
+
+                <div class="summer-img">
+                    <img src="img/verao4.jpg">
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <!-- Seção Livros -->
+    <section id="books">
+        <h2 class="section-title">Mundo dos Livros 📚</h2>
+        <div class="books-section">
+            <div class="book-card">
+                <div class="book-cover">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="book-info">
+                    <div class="book-title">Colleen Hoover</div>
+                    <div class="book-author">Sua autora favorita</div>
+                    <p class="book-desc">Você já me falou sobre como os livros dela te fazem sentir todas as emoções possíveis. Acho que é porque você também é uma pessoa profunda que valoriza histórias verdadeiras.</p>
+                </div>
+            </div>
+            <div class="book-card">
+                <div class="book-cover">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <div class="book-info">
+                    <div class="book-title">Páginas da Vida</div>
+                    <div class="book-author">Sua história</div>
+                    <p class="book-desc">Cada capítulo dos seus 20 anos está sendo escrito agora. Que sejam páginas cheias de aventuras, aprendizado e momentos felizes com quem você ama.</p>
+                </div>
+            </div>
+            <div class="book-card">
+                <div class="book-cover">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="book-info">
+                    <div class="book-title">Próximas Leituras</div>
+                    <div class="book-author">Sua lista infinita</div>
+                    <p class="book-desc">Que seus 20 anos sejam como uma estante cheia de livros incríveis esperando para serem lidos - cada um com sua própria magia e lições.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Seção Doces -->
+    <section id="sweets">
+        <h2 class="section-title">Para a Fã de Doces 🍫</h2>
+        <div class="sweets-section">
+            <div class="sweet-item">
+                <span class="sweet-emoji">🍫</span>
+                <div class="sweet-name">Chocolate</div>
+            </div>
+            <div class="sweet-item">
+                <span class="sweet-emoji">🍰</span>
+                <div class="sweet-name">Bolos</div>
+            </div>
+            <div class="sweet-item">
+                <span class="sweet-emoji">🍬</span>
+                <div class="sweet-name">Docinhos</div>
+            </div>
+            <div class="sweet-item">
+                <span class="sweet-emoji">🧁</span>
+                <div class="sweet-name">Cupcakes</div>
+            </div>
+            <div class="sweet-item">
+                <span class="sweet-emoji">🍪</span>
+                <div class="sweet-name">Cookies</div>
+            </div>
+        </div>
+        <p style="text-align:center; margin-top:40px; font-size:1.2rem; max-width:700px; margin-left:auto; margin-right:auto;">
+            A vida já tem seus momentos amargos, então é justo equilibrar com bastante doçura! Que seus 20 anos sejam doces como suas guloseimas favoritas.
+        </p>
+    </section>
+    
+    <!-- Seção Bela e a Fera -->
+    <section id="beautybeast">
+        <h2 class="section-title">A Bela e a Fera 🌹</h2>
+        <div class="beauty-beast">
+            <div class="rose-container">
+                <div class="enchanted-rose" id="enchantedRose">🌹</div>
+                <p class="rose-text">"A verdadeira beleza vem de dentro"</p>
+            </div>
+            <div class="beast-quote">
+                <p>Assim como a Bela, você aprecia as histórias que vão além da superfície. Não é à toa que essa é uma das suas favoritas!</p>
+                <br>
+                <p>A lição da rosa encantada é sobre amor, paciência e ver a verdadeira essência das pessoas. Coisas que você demonstra com suas amizades.</p>
+                <br>
+                <p>Que seus 20 anos sejam como esse conto: cheios de magia, transformação e finais felizes conquistados com coragem e bondade.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Seção Carta -->
+    <section id="letter">
+        <h2 class="section-title">Uma Cartinha Para Você 💌</h2>
+        <div class="letter-container">
+            <div class="envelope" id="envelope">
+                <div class="letter">
+                    <p style="font-style: italic;">Clique para abrir sua carta especial...</p>
+                </div>
+                <div class="wax-seal">🐼</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Conteúdo da Carta -->
+    <div class="letter-content" id="letterContent">
+        <div class="letter-paper">
+            <div class="close-btn" id="closeBtn">×</div>
+            <h3>Para a Anna Valéria</h3>
+            <p>Feliz 20 anos, Pandinha! 🎂</p>
+            <br>
+            <p>Escrevo isso não apenas como mais uma mensagem de aniversário, mas como um reconhecimento de quem você é e do quanto sua amizade significa.</p>
+            <br>
+            <p>Em um mundo cheio de pessoas comuns, você se destaca pela sua genuinidade. Aquele jeito tranquilo de ver a vida, sua paixão pelas histórias (seja em livros ou séries), e essa doçura que vai além dos doces que você ama.</p>
+            <br>
+            <p>Lembro das conversas sobre livros da Colleen Hoover, das recomendações de séries, das risadas em momentos aleatórios. São essas pequenas coisas que constroem uma amizade verdadeira.</p>
+            <br>
+            <p>Nesses 20 anos, você já deve ter aprendido que a vida não é um conto de fadas perfeito, mas também percebeu que temos o poder de escrever nossa própria história. E a sua está apenas começando seu capítulo mais emocionante.</p>
+            <br>
+            <p>Que essa nova década traça os melhores livros para ler, os doces mais gostosos para experimentar, as séries mais cativantes para maratonar, e principalmente, momentos genuínos com quem realmente importa.</p>
+            <br>
+            <p>Continue sendo essa pessoa incrível: a Pandinha que todos adoramos, a leitora apaixonada, a fã de doces, a amiga verdadeira.</p>
+            <br>
+            <p>Com carinho,</p>
+            <div class="letter-signature">Jocas</div>
+            <p style="text-align:center; margin-top:30px; font-size:0.9rem; color:#888;">P.S.: Espero que tenha gostado desse presente digital feito especialmente para você!</p>
+        </div>
+    </div>
+  
+    <!-- Footer -->
+    <footer>
+        <h3 style="font-size:2rem; margin-bottom:20px;">Feliz 20 anos novamente! 🎉</h3>
+        <p style="font-size:1.2rem; margin-bottom:30px; max-width:600px; margin-left:auto; margin-right:auto;">
+            Que esse ano seja incrível do início ao fim, cheio de conquistas, risadas e momentos inesquecíveis.
+        </p>
+        <div style="font-size:3rem; margin:30px 0;">
+            <span class="footer-heart">❤️</span>
+            <span>🐼</span>
+            <span class="footer-heart">❤️</span>
+        </div>
+        <p>Feito com carinho por um amigo • 04 de janeiro</p>
+    </footer>
+
+    <script>
+
+        document.getElementById("startBtn").addEventListener("click", () => {
+            document.getElementById("photos").scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+
+        // Função para rolar suavemente para as seções
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Criar confetes
+        function createConfetti() {
+            const confettiContainer = document.getElementById('confetti');
+            const colors = ['#ff9ebb', '#a2d2ff', '#ffd166', '#a7e9af', '#8a2be2'];
+            
+            for (let i = 0; i < 150; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti-piece');
+                
+                // Posição aleatória
+                confetti.style.left = Math.random() * 100 + 'vw';
+                
+                // Cor aleatória
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                
+                // Tamanho aleatório
+                const size = Math.random() * 10 + 5;
+                confetti.style.width = size + 'px';
+                confetti.style.height = size * 2 + 'px';
+                
+                // Animação
+                confetti.style.animation = `fall ${Math.random() * 3 + 2}s linear forwards`;
+                confetti.style.animationDelay = Math.random() * 5 + 's';
+                
+                // Adicionar ao container
+                confettiContainer.appendChild(confetti);
+                
+                // Remover após a animação
+                setTimeout(() => {
+                    confetti.remove();
+                }, 7000);
+            }
+            
+            // Adicionar estilo de animação de queda
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @keyframes fall {
+                    0% {
+                        transform: translateY(-100px) rotate(0deg);
+                        opacity: 1;
+                    }
+                    100% {
+                        transform: translateY(100vh) rotate(360deg);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+        
+        // Animar a rosa
+        function animateRose() {
+            const rose = document.querySelector('.enchanted-rose');
+            rose.style.animation = 'pulse 0.5s 3, glow 1s 3 alternate';
+            
+            // Criar partículas de brilho
+            for (let i = 0; i < 10; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'fixed';
+                particle.style.width = '10px';
+                particle.style.height = '10px';
+                particle.style.backgroundColor = '#ff9ebb';
+                particle.style.borderRadius = '50%';
+            }
+        }
+
+        const envelope = document.getElementById("envelope");
+        const letterContent = document.getElementById("letterContent");
+        const closeBtn = document.getElementById("closeBtn");
+
+        envelope.addEventListener("click", () => {
+            envelope.classList.add("open");
+
+            setTimeout(() => {
+                letterContent.style.display = "flex";
+            }, 600);
+        });
+
+        closeBtn.addEventListener("click", () => {
+            letterContent.style.display = "none";
+            envelope.classList.remove("open");
+        });
+
+        const musicas = [
+          "music/musica1.mp3",
+          "music/musica2.mp3",
+          "music/musica3.mp3",
+          "music/musica4.mp3",
+          "music/musica5.mp3",
+          "music/musica6.mp3",
+          "music/musica7.mp3",
+          "music/musica8.mp3",
+          "music/musica9.mp3",
+          "music/musica10.mp3",
+          "music/musica11.mp3",
+          "music/musica12.mp3",
+          "music/musica13.mp3",
+          "music/musica14.mp3",
+          "music/musica15.mp3",
+          "music/musica16.mp3",
+          "music/musica17.mp3",
+          "music/musica18.mp3",
+          "music/musica19.mp3",
+          "music/musica20.mp3",
+          "music/musica21.mp3",
+          "music/musica22.mp3",
+          "music/musica23.mp3",
+          "music/musica24.mp3",
+          "music/musica25.mp3",
+          "music/musica26.mp3",
+          "music/musica27.mp3",
+          "music/musica28.mp3",
+          "music/musica29.mp3",
+          "music/musica30.mp3",
+          "music/musica31.mp3",
+          "music/musica32.mp3",
+          "music/musica33.mp3"
+        ];
+
+        const player = document.getElementById("player");
+
+        function tocarMusicaAleatoria() {
+          const indice = Math.floor(Math.random() * musicas.length);
+          player.src = musicas[indice];
+          player.play();
+        }
+
+        player.addEventListener("ended", tocarMusicaAleatoria);
+
+        // inicia automaticamente
+        tocarMusicaAleatoria();
+      </script>
